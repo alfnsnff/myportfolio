@@ -49,6 +49,7 @@ const primaryStack = ref([
   { name: 'FastAPI', delay: '0.2s' },
   { name: 'Laravel', delay: '0.2s' },
   { name: 'PHP', delay: '0.2s' },
+  { name: 'C/C++', delay: '0.2s' },
   { name: 'Flutter', delay: '0.2s' },
   { name: 'Dart', delay: '0.2s' },
   { name: 'Kotlin', delay: '0.2s' },
@@ -85,8 +86,8 @@ onMounted(() => {
 .skills-section {
   background-color: #f8f9fa;
   color: #1a1a1a;
-  min-height: 100vh;
-  padding: 4rem 0;
+  min-height: auto; // Hapus min-height: 100vh
+  padding: 6rem 0; // Consistent padding
   position: relative;
 }
 

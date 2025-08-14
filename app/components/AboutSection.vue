@@ -17,7 +17,7 @@
               efficient code and pixel-perfect design.
             </p>
             <p class="description">
-              With over 5 years of experience in web development, I specialize in creating
+              A fresh graduate Software Developer, specialize in creating
               modern, responsive applications using the latest technologies. My approach
               combines technical expertise with creative problem-solving to deliver
               exceptional digital experiences.
@@ -37,42 +37,48 @@
         <!-- Right Column - Visual Elements -->
         <div class="content-right">
 
-<!--           
+          
           <div class="skills-section">
             <h3 class="skills-title">Expertise</h3>
             <div class="skills-grid">
               <div class="skill-category">
                 <h4>Frontend</h4>
                 <div class="skill-tags">
+                  <span class="skill-tag">Next.js</span>
+                  <span class="skill-tag">Vite</span>
                   <span class="skill-tag">Vue.js</span>
                   <span class="skill-tag">Nuxt.js</span>
                   <span class="skill-tag">React</span>
                   <span class="skill-tag">TypeScript</span>
+                  <span class="skill-tag">Javascript</span>
+                  <span class="skill-tag">PHP</span>
+                  <span class="skill-tag">Laravel</span>
                 </div>
               </div>
               <div class="skill-category">
                 <h4>Backend</h4>
                 <div class="skill-tags">
-                  <span class="skill-tag">Node.js</span>
+                  <span class="skill-tag">Golang</span>
+                  <span class="skill-tag">Gin</span>
                   <span class="skill-tag">Python</span>
+                  <span class="skill-tag">FastAPI</span>
+                  <span class="skill-tag">Flask</span>
                   <span class="skill-tag">PostgreSQL</span>
-                  <span class="skill-tag">MongoDB</span>
+                  <span class="skill-tag">MySQL</span>
+                  <span class="skill-tag">Laravel</span>
+                  <span class="skill-tag">PHP</span>
                 </div>
               </div>
               <div class="skill-category">
                 <h4>Tools</h4>
                 <div class="skill-tags">
                   <span class="skill-tag">Docker</span>
-                  <span class="skill-tag">AWS</span>
                   <span class="skill-tag">Git</span>
                   <span class="skill-tag">Figma</span>
                 </div>
               </div>
             </div>
-          </div> -->
-
-
-
+          </div>
         </div>
       </div>
 
@@ -116,14 +122,13 @@ onMounted(() => {
 .about-section {
   background-color: #ffffff;
   color: #1a1a1a;
-  width: 100vw;
-  height: 100vh;
-  padding: 4rem 0;
+  min-height: auto; // Hapus min-height: 100vh
+  padding: 6rem 0; // Consistent padding
   position: relative;
 }
 
 .about-container {
-  max-width: 1200px;
+  max-width: 1400px; // Consistent max-width
   margin: 0 auto;
   padding: 0 2rem;
 }

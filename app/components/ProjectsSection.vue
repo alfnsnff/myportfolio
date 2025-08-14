@@ -41,8 +41,6 @@
                 </span>
               </div>
             </div>
-
-
           </div>
         </div>
       </div>
@@ -81,7 +79,7 @@ const projects = ref([
     id: 1,
     title: 'TiketHebat',
     description: 'Full-stack e-commerce solution with advanced inventory management, payment integration, and real-time analytics dashboard.',
-    technologies: ['Vue.js', 'Node.js', 'PostgreSQL', 'Stripe'],
+    technologies: ['Golang', 'Gin', 'PostgreSQL', 'Tripay', 'JWT', 'Casbin', 'Grafana', 'Promethues', 'Loki'],
     featured: true,
     demoUrl: 'https://demo-ecommerce.example.com',
     codeUrl: 'https://github.com/alfnsnff/ecommerce-platform'
@@ -90,7 +88,7 @@ const projects = ref([
     id: 2,
     title: 'SiLang',
     description: 'Modern portfolio site with smooth animations and responsive design.',
-    technologies: ['Nuxt.js', 'SCSS', 'GSAP'],
+    technologies: ['Kotlin', 'Firebase', 'Android Studio'],
     featured: false,
     demoUrl: 'https://portfolio.example.com',
     codeUrl: 'https://github.com/alfnsnff/portfolio'
@@ -99,7 +97,7 @@ const projects = ref([
     id: 3,
     title: 'Sidara',
     description: 'Cross-platform mobile app for team collaboration and task tracking.',
-    technologies: ['React Native', 'Firebase', 'Redux'],
+    technologies: ['Flutter', 'Dart'],
     featured: false,
     demoUrl: 'https://taskapp.example.com',
     codeUrl: 'https://github.com/alfnsnff/task-app'
@@ -108,7 +106,7 @@ const projects = ref([
     id: 4,
     title: 'WebGIS',
     description: 'Complete customer relationship management system with analytics.',
-    technologies: ['Vue.js', 'Laravel', 'MySQL'],
+    technologies: ['FastAPI', 'Python', 'PostgreSQL', 'Next.js', 'React' ,'Tailwind CSS'],
     featured: false,
     demoUrl: 'https://crm.example.com',
     codeUrl: 'https://github.com/alfnsnff/crm-dashboard'
@@ -117,7 +115,7 @@ const projects = ref([
     id: 5,
     title: 'WeddingInvitation',
     description: 'Comprehensive UI component library with Storybook documentation.',
-    technologies: ['Vue.js', 'Storybook', 'TypeScript'],
+    technologies: ['Vite', 'React', 'TypeScript', 'CSS Modules'],
     demoUrl: 'https://design-system.example.com',
     codeUrl: 'https://github.com/alfnsnff/design-system'
   }
@@ -170,8 +168,8 @@ onMounted(() => {
 .projects-section {
   background-color: #1a1a1a;
   color: #ffffff;
-  min-height: 100vh;
-  padding: 4rem 0;
+  min-height: auto; // Hapus min-height: 100vh
+  padding: 6rem 0; // Consistent padding
   position: relative;
 }
 
@@ -311,8 +309,9 @@ onMounted(() => {
       .project-header {
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: start;
         margin-bottom: 1rem;
+        gap: 1rem;
 
 
         .project-title {
@@ -322,14 +321,10 @@ onMounted(() => {
           color: #ffffff;
         }
 
-        .project-description {
-          color: #cccccc;
-          line-height: 1.6;
-          margin-bottom: 1.5rem;
-        }
 
         .project-tech {
           display: flex;
+          justify-content: flex-end;
           flex-wrap: wrap;
           gap: 0.5rem;
 

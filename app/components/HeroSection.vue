@@ -32,7 +32,7 @@
 
         <!-- Action Buttons - Bottom Level -->
         <div class="action-buttons">
-          <button class="action-btn close-btn">*</button>
+          <button class="action-btn close-btn">??</button>
           <button class="action-btn kix-btn">
             <span>KIX</span>
             <span class="dot">●</span>
@@ -50,33 +50,23 @@
   </section>
 </template>
 
-<script setup>
-import { ref } from 'vue'
-
-const isDark = ref(true)
-
-const toggleTheme = () => {
-  isDark.value = !isDark.value
-}
-</script>
-
 <style lang="scss" scoped>
 .hero-section {
   background-color: #1a1a1a;
   color: #ffffff;
   font-family: 'Arial', sans-serif;
-  position: relative; // Ubah dari fixed ke relative
+  position: relative;
   overflow: hidden;
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-  height: 100vh;
   z-index: 1;
+  height: 100vh;
+  min-height: 100vh;
 }
 
 .hero-container {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -93,6 +83,7 @@ const toggleTheme = () => {
   font-size: 0.9rem;
   letter-spacing: 0.1em;
   z-index: 10;
+  flex-shrink: 0;
 }
 
 .contact-info {
@@ -111,27 +102,6 @@ const toggleTheme = () => {
   }
 }
 
-.theme-toggle {
-  .toggle-btn {
-    width: 40px;
-    height: 40px;
-    border: none;
-    background: #ffffff;
-    color: #1a1a1a;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
-
-    &:hover {
-      transform: scale(1.1);
-    }
-  }
-}
-
 // Main Content - Staggered Layout
 .hero-content {
   flex: 1;
@@ -141,9 +111,10 @@ const toggleTheme = () => {
   position: relative;
   margin: 2rem 0;
   padding: 0 2rem;
+  min-height: 0;
 }
 
-// Navigation Arrow - Top Level (paling atas)
+// Navigation Arrow - Top Level
 .nav-arrow {
   align-self: flex-start;
   margin-top: 0;
@@ -169,7 +140,7 @@ const toggleTheme = () => {
   }
 }
 
-// Role Tags - Middle Level (tengah)
+// Role Tags - Middle Level
 .role-tags {
   display: flex;
   flex-direction: column;
@@ -197,7 +168,7 @@ const toggleTheme = () => {
   }
 }
 
-// Action Buttons - Bottom Level (paling bawah)
+// Action Buttons - Bottom Level
 .action-buttons {
   display: flex;
   align-items: center;
@@ -271,9 +242,10 @@ const toggleTheme = () => {
 .hero-title {
   text-align: center;
   margin: 2rem 0;
+  flex-shrink: 0;
 
   h1 {
-    font-size: clamp(4rem, 12vw, 12rem);
+    font-size: clamp(3rem, 12vw, 12rem);
     font-weight: 900;
     letter-spacing: -0.02em;
     line-height: 0.9;
@@ -282,46 +254,38 @@ const toggleTheme = () => {
   }
 }
 
-// Footer
-.hero-footer {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  margin-top: auto;
-
-  .made-in {
-    padding: 0.5rem 1rem;
-    background: #ffffff;
-    color: #1a1a1a;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
-
-    &:hover {
-      transform: scale(1.05);
-    }
-  }
-}
-
-// Responsive
+// Responsive Design
 @media (max-width: 768px) {
+  .hero-section {
+    height: 100vh;
+    min-height: 100vh;
+    overflow-y: auto;
+  }
+
   .hero-container {
+    height: auto;
+    min-height: 100vh;
     padding: 1rem;
+    justify-content: space-between; // Better distribution
   }
 
   .hero-header {
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.75rem;
     align-items: flex-start;
+    margin-bottom: 2rem; // Reduced from 4rem
+    font-size: 0.8rem;
   }
 
   .hero-content {
+    flex: 1; // Allow it to grow and take available space
+    display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 2rem; // Increased gap for better spacing
     padding: 0;
-    margin: 3rem 0;
+    margin: 1rem 0; // Balanced margins
     align-items: center;
+    justify-content: center; // Center content vertically
 
     .nav-arrow,
     .role-tags,
@@ -329,15 +293,22 @@ const toggleTheme = () => {
       align-self: center;
       margin-top: 0;
     }
-  }
 
-  .action-buttons {
-    flex-wrap: wrap;
-    justify-content: center;
+    .nav-arrow .arrow-btn {
+      width: 50px;
+      height: 50px;
+    }
   }
 
   .role-tags {
     order: 2;
+    gap: 0.75rem; // Slightly increased
+    
+    .role-tag {
+      padding: 0.5rem 1rem;
+      font-size: 0.8rem;
+      white-space: nowrap;
+    }
   }
 
   .nav-arrow {
@@ -346,6 +317,132 @@ const toggleTheme = () => {
 
   .action-buttons {
     order: 3;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem; // Slightly increased
+
+    .action-btn {
+      padding: 0.5rem 1rem;
+      font-size: 0.8rem;
+    }
+
+    .close-btn {
+      width: 50px;
+      height: 50px;
+      font-size: 1rem;
+    }
+  }
+
+  // Title
+  .hero-title {
+    margin: 1.5rem 0 2rem 0; // Better bottom margin
+    flex-shrink: 0;
+
+    h1 {
+      font-size: clamp(1.8rem, 12vw, 4rem);
+      line-height: 0.85;
+      letter-spacing: -0.01em;
+    }
+  }
+}
+
+// Extra small screens
+@media (max-width: 480px) {
+  .hero-container {
+    padding: 0.75rem;
+  }
+
+  .hero-header {
+    font-size: 0.75rem;
+    margin-bottom: 1.5rem; // Proportional reduction
+  }
+
+  .hero-content {
+    gap: 1.5rem; // Proportional gap
+    margin: 0.75rem 0;
+  }
+
+  .role-tags {
+    gap: 0.5rem;
+    
+    .role-tag {
+      font-size: 0.7rem;
+      padding: 0.4rem 0.8rem;
+    }
+  }
+
+  .action-buttons {
+    gap: 0.5rem;
+
+    .action-btn {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.7rem;
+    }
+
+    .close-btn {
+      width: 45px;
+      height: 45px;
+      font-size: 0.9rem;
+    }
+  }
+
+  .hero-title {
+    margin: 1rem 0 1.5rem 0;
+    
+    h1 {
+      font-size: clamp(1.5rem, 14vw, 3rem);
+      line-height: 0.8;
+    }
+  }
+}
+
+// Portrait orientation fix
+@media (max-height: 640px) and (orientation: portrait) {
+  .hero-container {
+    justify-content: space-between;
+  }
+
+  .hero-header {
+    margin-bottom: 1rem;
+    font-size: 0.7rem;
+  }
+
+  .hero-content {
+    gap: 1rem;
+    margin: 0.5rem 0;
+  }
+
+  .role-tags {
+    gap: 0.25rem;
+
+    .role-tag {
+      padding: 0.3rem 0.6rem;
+      font-size: 0.65rem;
+    }
+  }
+
+  .action-buttons {
+    gap: 0.3rem;
+
+    .action-btn {
+      padding: 0.3rem 0.6rem;
+      font-size: 0.65rem;
+    }
+
+    .close-btn {
+      width: 40px;
+      height: 40px;
+      font-size: 0.8rem;
+    }
+  }
+
+  .hero-title {
+    margin: 0.5rem 0 1rem 0;
+
+    h1 {
+      font-size: clamp(1.2rem, 12vw, 2.5rem);
+      line-height: 0.75;
+    }
   }
 }
 </style>

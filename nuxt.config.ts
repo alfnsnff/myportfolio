@@ -7,9 +7,9 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      title: 'CrecsPlays - Portofolio Developer',
+      title: 'alfnsnff - Portfolio',
       meta: [
-        { name: 'description', content: 'Portofolio developer dengan desain unik' }
+        { name: 'description', content: 'Portofolio M. Alfan Septian Nufi' }
       ]
     },
     pageTransition: { name: 'page', mode: 'out-in' }

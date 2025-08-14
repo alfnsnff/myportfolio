@@ -16,7 +16,8 @@ export default defineNuxtConfig({
   },
   css: ['~/assets/scss/main.scss'],
   modules: [
-    '@vueuse/nuxt'
+    '@vueuse/nuxt',
+    '@vueuse/motion/nuxt'
   ],
   vite: {
     css: {
@@ -24,8 +25,6 @@ export default defineNuxtConfig({
         scss: {
           additionalData: `
             @use "~/assets/scss/variables" as *;
-            @use "~/assets/scss/animations" as *;
-            @use "~/assets/scss/mixins" as *;
           `
         }
       }
